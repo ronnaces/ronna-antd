@@ -1,5 +1,4 @@
 import { defHttp as request } from '@/utils/http/axios';
-
 enum Api {
   page = '/page',
   batch = '/batch',

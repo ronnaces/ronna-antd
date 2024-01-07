@@ -1,6 +1,8 @@
 import { defHttp } from '@/utils/http/axios';
-import { LoginParams, LoginResultModel, GetUserInfoModel } from './model/userModel';
+import { LoginParams, LoginResultModel, UserInfoModel } from './model/userModel';
 import { ErrorMessageMode } from '#/axios';
+import {MenuResultModel} from "@/api/login/model/menuModel";
+import {DepartmentModel} from "@/api/login/model/departmentModel";
 
 const path = '/auth';
 
@@ -9,6 +11,8 @@ enum Api {
   Logout = '/logout',
   Userinfo = '/user/info',
   UserPermission = '/user/permission',
+  UserDepartment = '/user/department',
+  UserRouter = '/user/router',
 }
 
 export const loginApi = (params: LoginParams, mode: ErrorMessageMode = 'modal') => {
@@ -28,7 +32,7 @@ export const logoutApi = () => {
 };
 
 export const userinfo = () => {
-  return defHttp.get<GetUserInfoModel>(
+  return defHttp.get<UserInfoModel>(
     { url: `${path}${Api.Userinfo}` },
     { errorMessageMode: 'none' },
   );
@@ -36,4 +40,12 @@ export const userinfo = () => {
 
 export const userPermission = () => {
   return defHttp.get<string[]>({ url: `${path}${Api.UserPermission}` });
+};
+
+export const userRouter = () => {
+  return defHttp.get<MenuResultModel>({ url: `${path}${Api.UserRouter}` });
+};
+
+export const userDepartment = () => {
+  return defHttp.get<DepartmentModel>({ url: `${path}${Api.UserDepartment}` });
 };

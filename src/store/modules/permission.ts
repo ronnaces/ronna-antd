@@ -18,8 +18,7 @@ import { ERROR_LOG_ROUTE, PAGE_NOT_FOUND_ROUTE } from '@/router/routes/basic';
 
 import { filter } from '@/utils/helper/treeHelper';
 
-import { userRouter } from '@/api/system/menu';
-import { userPermission } from '@/api/login';
+import { userRouter, userPermission } from '@/api/login';
 
 import { useMessage } from '@/hooks/web/useMessage';
 import { PageEnum } from '@/enums/pageEnum';
