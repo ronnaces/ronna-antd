@@ -8,6 +8,7 @@ const path = "/system/role"
 
 enum Api {
   Page = '/page',
+  List = '/list',
   Batch = '/batch',
   Upload = '/upload',
   Download = '/download',
@@ -39,6 +40,14 @@ export type ResultModel = BasicFetchResult<Item>;
  */
 export const apiPage = (params: Params, data: Operation) =>
   defHttp.post<ResultModel>({url: `${path}${Api.Page}`, params: params, data: data});
+
+/**
+ * page
+ * @param params
+ * @param data
+ */
+export const apiList = (params: Params, data: Operation) =>
+  defHttp.post<ResultModel>({url: `${path}${Api.List}`, params: params, data: data});
 
 /**
  * detail

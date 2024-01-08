@@ -21,7 +21,7 @@ const XLSX_FILE_SUFFIX = '.xlsx';
  * @param path
  * @param data
  */
-export const create = (path: string, data?: any) => request.post({ url: path, data: data });
+export const create = (path: string, data: any) => request.post({ url: path, data: data });
 
 /**
  * batch create

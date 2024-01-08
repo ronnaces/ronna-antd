@@ -7,10 +7,11 @@
   import { ref, computed, unref } from 'vue';
   import { BasicModal, useModalInner } from '@/components/Modal';
   import { BasicForm, useForm } from '@/components/Form';
-  import { accountFormSchema } from './account.data';
+  import { userFormSchema } from './user.data';
   import {userDepartment} from "@/api/login";
+  import {apiCreate, apiEdit} from "@/views/system/user/api";
 
-  defineOptions({ name: 'AccountModal' });
+  defineOptions({ name: 'UserModal' });
 
   const emit = defineEmits(['success', 'register']);
 
@@ -20,7 +21,7 @@
   const [registerForm, { setFieldsValue, updateSchema, resetFields, validate }] = useForm({
     labelWidth: 100,
     baseColProps: { span: 24 },
-    schemas: accountFormSchema,
+    schemas: userFormSchema,
     showActionButtonGroup: false,
     actionColOptions: {
       span: 23,
@@ -52,14 +53,17 @@
     ]);
   });
 
-  const getTitle = computed(() => (!unref(isUpdate) ? '新增账号' : '编辑账号'));
+  const getTitle = computed(() => (!unref(isUpdate) ? '新增' : '编辑'));
 
   async function handleSubmit() {
     try {
       const values = await validate();
       setModalProps({ confirmLoading: true });
-      // TODO custom api
-      console.log(values);
+      if (isUpdate) {
+        await apiEdit(values);
+      } else {
+        await apiCreate(values);
+      }
       closeModal();
       emit('success', { isUpdate: unref(isUpdate), values: { ...values, id: rowId.value } });
     } finally {

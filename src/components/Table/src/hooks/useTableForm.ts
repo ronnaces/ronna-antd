@@ -34,6 +34,7 @@ export function useTableForm(
   }
 
   function handleSearchInfoChange(info: Recordable) {
+    // console.log(info)
     const { handleSearchInfoFn } = unref(propsRef);
     if (handleSearchInfoFn && isFunction(handleSearchInfoFn)) {
       info = handleSearchInfoFn(info) || info;

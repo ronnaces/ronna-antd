@@ -21,6 +21,7 @@ export interface Query {
   fieldName?: string
   fieldValue?: string[]
   operator?: string
+  nested?: string
 }
 
 export interface Excel {
@@ -30,7 +31,7 @@ export interface Excel {
 }
 
 export interface Operation {
-  pageNo?: number
+  page?: number
   pageSize?: number
   fieldList?: string[]
   queryList?: Query[]
@@ -39,7 +40,7 @@ export interface Operation {
 }
 
 export interface DefaultOperation {
-  pageNo: number
+  page: number
   pageSize: number
   fieldList: string[]
   queryList: Query[]
@@ -48,7 +49,7 @@ export interface DefaultOperation {
 }
 
 const defaultOperation: DefaultOperation = {
-  pageNo: 1,
+  page: 1,
   pageSize: 10,
   fieldList: [],
   queryList: [],

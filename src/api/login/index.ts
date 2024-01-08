@@ -13,6 +13,7 @@ enum Api {
   UserPermission = '/user/permission',
   UserDepartment = '/user/department',
   UserRouter = '/user/router',
+  UserExist = '/user/exist',
 }
 
 export const loginApi = (params: LoginParams, mode: ErrorMessageMode = 'modal') => {
@@ -49,3 +50,7 @@ export const userRouter = () => {
 export const userDepartment = () => {
   return defHttp.get<DepartmentModel>({ url: `${path}${Api.UserDepartment}` });
 };
+export const userExist = (username: string) =>
+  defHttp.get({url: `${path}${Api.UserExist}`, params: {username}}, {errorMessageMode: 'none'});
+
+

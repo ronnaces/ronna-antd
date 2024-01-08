@@ -39,7 +39,7 @@ export interface Result<T = any> {
   code: number;
   type: 'success' | 'error' | 'warning';
   message: string;
-  record: T;
+  result: T;
 }
 
 // multipart/form-data: upload file

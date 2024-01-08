@@ -14,7 +14,7 @@ enum Api {
   Page = '/page',
   Batch = '/batch',
   Upload = '/upload',
-  Download = '/download',
+  Download = '/download'
 }
 
 export type Params = {
@@ -26,12 +26,10 @@ export type Params = {
 export interface Item {
   id: string;
   username: string;
-  email: string;
   name: string;
-  role: number;
+  email: string;
   createTime: string;
   description: string;
-  status: number;
 }
 
 /**
@@ -57,7 +55,7 @@ export const apiDetail = (id?: string) => detail(path, id)
  * create
  * @param data
  */
-export const apiCreate = (data?: any) => create(path, data)
+export const apiCreate = (data: Item) => create(path, data)
 
 /**
  * batch create
@@ -69,7 +67,7 @@ export const apiBatchCreate = (data?: any) => batchCreate(path, data)
  * edit
  * @param data
  */
-export const apiEdit = (data?: any) => edit(path, data)
+export const apiEdit = (data: Item) => edit(path, data)
 
 /**
  * del
@@ -89,6 +87,7 @@ export const apiDownload = (params?: any, data?: any, isXlsx = false) =>
   download(path, params, data, isXlsx)
 
 export const apiUpload = (data?: any) => upload(path, data)
+
 
 /**
  * check uniqueness
