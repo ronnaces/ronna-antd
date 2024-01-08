@@ -1,18 +1,8 @@
-import {
-  batchCreate,
-  batchDelete,
-  create,
-  del,
-  detail,
-  download,
-  edit,
-  Result,
-  upload,
-} from "@/api";
+import {batchCreate, batchDelete, create, del, detail, download, edit, upload,} from "@/api";
 
 import {defHttp} from '@/utils/http/axios';
 import {Operation} from '@/hooks/web/useOperation';
-import {BasicResult} from "@/api/model/baseModel";
+import {BasicFetchResult} from "@/api/model/baseModel";
 
 const path = "/system/user"
 
@@ -47,7 +37,7 @@ export interface Item {
 /**
  * @description: Request list return value
  */
-export type ResultModel = BasicResult<Item>;
+export type ResultModel = BasicFetchResult<Item>;
 
 /**
  * page
@@ -104,24 +94,24 @@ export const apiUpload = (data?: any) => upload(path, data)
  * check uniqueness
  * @param data
  */
-export const checkUniqueness = (data?: any) =>
-  defHttp.get(`${path}${Api.CheckUniqueness}`, {data: data})
+// export const checkUniqueness = (data?: any) =>
+//   defHttp.get(`${path}${Api.CheckUniqueness}`, {data: data})
 
 /**
  * change password
  * @param data
  */
-export const changePassword = (data?: any) =>
-  defHttp.put(`${path}${Api.ChangePassword}`, {data: data})
+// export const changePassword = (data?: any) =>
+//   defHttp.put(`${path}${Api.ChangePassword}`, {data: data})
 
 /**
  * reset password
  * @param data
  */
-export const resetPassword = (data?: any) => defHttp.put(`${path}${Api.ResetPassword}`, {data: data})
+// export const resetPassword = (data?: any) => defHttp.put(`${path}${Api.ResetPassword}`, {data: data})
 
 /**
  * permission
  */
-export const apiRoles = (param?: any) =>
-  defHttp.get<{}, Result>(`${path}${Api.Roles}`, {params: param})
+// export const apiRoles = (param?: any) =>
+//   defHttp.get<{}, Result>(`${path}${Api.Roles}`, {params: param})

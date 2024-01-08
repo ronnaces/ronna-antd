@@ -2,7 +2,7 @@ import {batchCreate, batchDelete, create, del, detail, download, edit, upload,} 
 
 import {defHttp} from '@/utils/http/axios';
 import {Operation} from '@/hooks/web/useOperation';
-import {BasicResult} from "@/api/model/baseModel";
+import {BasicFetchResult} from "@/api/model/baseModel";
 
 const path = "/system/role"
 
@@ -24,12 +24,13 @@ export interface Item {
   name: string;
   description?: string;
   createTime?: string;
+  whetherDelete: boolean;
 }
 
 /**
  * @description: Request list return value
  */
-export type ResultModel = BasicResult<Item>;
+export type ResultModel = BasicFetchResult<Item>;
 
 /**
  * page

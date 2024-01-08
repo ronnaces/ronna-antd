@@ -41,7 +41,7 @@
   const [registerDrawer, { openDrawer }] = useDrawer();
   const [registerTable, { reload }] = useTable({
     title: '角色列表',
-    api: apiPage({}, {}),
+    api: apiPage,
     columns,
     formConfig: {
       labelWidth: 120,

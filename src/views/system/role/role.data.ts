@@ -1,6 +1,5 @@
 import {BasicColumn, FormSchema} from '@/components/Table';
 
-type CheckedType = boolean | string | number;
 export const columns: BasicColumn[] = [
   {
     title: '角色名称',
