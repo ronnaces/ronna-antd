@@ -36,3 +36,8 @@ export interface UserInfoModel {
   // 介绍
   desc?: string;
 }
+
+export interface BindModel {
+  mainId: string | number;
+  minorIds: [];
+}
